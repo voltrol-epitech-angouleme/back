@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "09b13a19-df13-4069-ba23-d29050a11dda",
+		"name": "Angouleme library",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14832304"
+	},
+	"item": [
+		{
+			"name": "Ping",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/ping",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"ping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Trending",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/trending",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"trending"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user books recommendation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/recommendation/01a3ac76-47ab-4624-929d-7a61cd24bb44",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"recommendation",
+						"01a3ac76-47ab-4624-929d-7a61cd24bb44"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bookbooks recommendation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"book_id\": \"0132ee97-c415-4ebd-b0f9-5042f0801409\",\r\n    \"user_id\": \"01a3ac76-47ab-4624-929d-7a61cd24bb44\"\r\n}"
+				},
+				"url": {
+					"raw": "{{api_url}}/recommendation/book",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"recommendation",
+						"book"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "book detail by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/book/0132ee97-c415-4ebd-b0f9-5042f0801409",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"books",
+						"0132ee97-c415-4ebd-b0f9-5042f0801409"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "books",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/books",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"books"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "api_url",
+			"value": "localhost:8000"
+		}
+	]
+}
