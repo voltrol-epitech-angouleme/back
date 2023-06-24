@@ -29,7 +29,8 @@ load_dotenv()
 app = FastAPI()
 
 origins = [
-    os.environ.get("ORIGIN")
+    os.environ.get("ORIGIN"),
+    "http://localhost:3000",
 ]
 
 app.add_middleware(
