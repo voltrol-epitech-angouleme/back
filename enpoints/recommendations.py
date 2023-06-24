@@ -4,18 +4,19 @@ from recomendations.trending import get_books_trending
 from recomendations.user import get_book_recommendations_user
 from recomendations.book import get_book_recommendations
 from pydantic import BaseModel
+from middleware.verify_token import verify_token
 
 router = APIRouter()
 
 @router.get("/trending")
-def get_trending_books():
+def get_trending_books(decoded_token=Depends(verify_token)):
     try:
         return get_books_trending(30)
     except Exception as e:
         return {"message": "GET trending books", "books": [], "code_status": 404}
 
 @router.get("/recommendation")
-def books_user_recommendations(user_id: str):
+def books_user_recommendations(user_id: str, decoded_token=Depends(verify_token)):
     try:
         book_ref = db.collection("books")
         book_docs = book_ref.stream()

@@ -1,10 +1,11 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 from firebase.index import db
+from middleware.verify_token import verify_token
 
 router = APIRouter()
 
 @router.get("/books/{book_id}")
-def get_item(book_id: str):
+def get_item(book_id: str, decoded_token=Depends(verify_token)):
     try:
         ref = db.collection("books").document(book_id)
         doc = ref.get()
@@ -17,7 +18,7 @@ def get_item(book_id: str):
 
 
 @router.get("/books")
-def get_items():
+def get_items(decoded_token=Depends(verify_token)):
     try:
         ref = db.collection("books")
         docs = ref.stream()

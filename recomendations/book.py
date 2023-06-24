@@ -15,7 +15,6 @@ with open(file_path, "rb") as load_file:
 def get_book_recommendations(user, book_id, num_recommendations, books):
     # Get the selected book's categories
     selected_book = next((book for book in books if book['id'] == book_id), None)
-    print(selected_book)
     if selected_book is None:
         print("Invalid book ID.")
         return []
@@ -32,7 +31,6 @@ def get_book_recommendations(user, book_id, num_recommendations, books):
     similar_books.sort(key=lambda x: len(set(x['categories']).intersection(selected_categories)), reverse=True)
 
     # Filter out books already read by the user
-    print(user)
     user_read_books = set(user['readBooks'])
     book_recommendations = [book['id'] for book in similar_books if book['id'] not in user_read_books]
 
