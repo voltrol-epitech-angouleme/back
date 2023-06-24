@@ -21,7 +21,9 @@ data = {
     "universe_domain": os.environ.get("UNIVERSE_DOMAIN"),
 }
 
-with open("secret.json", "w") as json_file:
+file_path = "secret.json"
+
+with open(file_path, "w") as json_file:
     json.dump(data, json_file)
 
 json_file.close()
