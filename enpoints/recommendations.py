@@ -1,4 +1,4 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 from firebase.index import db
 from recomendations.trending import get_books_trending
 from recomendations.user import get_book_recommendations_user
