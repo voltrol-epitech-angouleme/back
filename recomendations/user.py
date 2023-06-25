@@ -16,7 +16,6 @@ with open(file_path, "rb") as load_file:
 
 
 def get_book_recommendations_user(user, num_recommendations, books):
-    print(user)
     try:
         user_books = [book['id']
                   for book in books if book['id'] in user['readBooks']]

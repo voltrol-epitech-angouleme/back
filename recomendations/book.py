@@ -36,10 +36,8 @@ def get_book_recommendations(user, book_id, num_recommendations, books):
     book_recommendations = book_recommendations[:num_recommendations]
 
     books_res = []
-    for book_r in book_recommendations:
-        book_id = book_r[0]
+    for book_id in book_recommendations:
         book = next((book for book in books if book['id'] == book_id), None)
         if book is not None:
             books_res.append(book)
-
     return books_res

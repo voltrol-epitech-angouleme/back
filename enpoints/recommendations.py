@@ -42,7 +42,7 @@ class Filters(BaseModel):
     user_id: str
 
 
-@router.post("/recommendation/book")
+@router.post("/recommendation")
 def books_book_recommendations(filters: Filters, decoded_token=Depends(verify_token)):
     book_id = filters.book_id
     user_id = filters.user_id
